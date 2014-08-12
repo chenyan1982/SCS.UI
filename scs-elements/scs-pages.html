@@ -1,0 +1,119 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="scs-page-splash.html">
+<link rel="import" href="scs-page-login.html">
+<link rel="import" href="scs-page-home.html">
+<link rel="import" href="scs-menu.html">
+<link rel="import" href="scs-toolbar.html">
+<link rel="import" href="scs-grid.html">
+<link rel="import" href="../components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../components/core-animated-pages/transitions/hero-transition.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-from-bottom.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-from-right.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-down.html">
+<link rel="import" href="../components/core-animated-pages/transitions/tile-cascade.html">
+
+
+
+
+<polymer-element name="scs-pages" attributes="currentpage wide" vertical layout>
+    <template>
+        <style>
+            .toolbar {
+                height: 100px;
+                z-index: 1;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+                background-color: steelblue;
+            }
+            .toolbar::shadow #topBar {
+                height: 96px;
+            }
+            .content {
+                display: block;
+                position: absolute;
+                top: 100px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                -webkit-overflow-scrolling: touch;;
+            }
+        </style>
+        <core-animated-pages id="pages" transitions="cross-fade slide-up slide-down tile-cascade" flex>
+            <section>
+                <scs-page-splash cross-fade></scs-page-splash>
+            </section>
+            <section>
+                <scs-page-login slide-up center on-loginresponse="{{loginresponse}}"></scs-page-login>
+            </section>
+            <section>
+                <core-toolbar class="toolbar" slide-down>
+                    <core-icon-button></core-icon-button>
+                    <div flex>注塑车间联网制造管理系统</div>
+                    <core-icon-button icon="more-vert"></core-icon-button>
+                </core-toolbar>
+                <scs-grid class="content"></scs-grid>
+                <div></div>
+            </section>
+        </core-animated-pages>
+
+    </template>
+    <script>
+        (function() {
+            window.setAppTransitionSpeed = function (ms) {
+                CoreStyle.g.transitions.duration = ms + 'ms';
+                CoreStyle.g.transitions.scaleDelay = CoreStyle.g.transitions.duration;
+            };
+
+            setAppTransitionSpeed(350);
+
+
+            Polymer('scs-pages', {
+                publish: {
+                    currentpage: ''
+                },
+                ready: function () {
+                    this.currentpage = 'scs-page-splash';
+                },
+                turnThePage: function () {
+                    switch (this.currentpage) {
+                        case 'scs-page-splash':
+                            this.$.pages.selected = 0;
+                            this.async(function () {
+                                this.currentpage = 'scs-page-login';
+                            }, null, storage.configuration.minSplashTime);
+                            break;
+                        case 'scs-page-login':
+                            this.$.pages.selected = 1;
+                            break;
+                        case 'scs-page-home':
+                            this.$.pages.selected = 2;
+                            break;
+                        default :
+                    }
+                },
+                currentpageChanged: function () {
+                    this.turnThePage();
+                },
+                loginresponse:  function() {
+                    this.loadmodules(modules);
+                    this.currentpage = 'scs-page-home';
+                },
+                loadmodules:  function(modules) {
+                    var mdls = currentUser.Modules + '|';
+                    for (var i = modules.length-1; i >= 0; i--) {
+                        if ((mdls.indexOf(modules[i].id + '|') < 0) &&
+                        (mdls.indexOf('|' + modules[i].id) < 0))
+                              modules.splice(i,1);
+                    }
+                }
+            });
+        })();
+
+    </script>
+</polymer-element>

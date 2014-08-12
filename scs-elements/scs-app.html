@@ -1,0 +1,24 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="scs-pages.html">
+<link rel="import" href="../components/core-media-query/core-media-query.html">
+
+        
+<polymer-element name="scs-app" vertical layout>
+    <template>
+        <scs-pages flex wide="{{wide}}"></scs-pages>
+        <core-media-query query="min-width: {{responsiveWidth}}" queryMatches="{{wide}}"></core-media-query>
+    </template>
+    <script>
+        Polymer('scs-app',{
+            responsiveWidth: '900px'
+
+        })
+    </script>
+</polymer-element>

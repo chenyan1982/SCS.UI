@@ -1,0 +1,42 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-localstorage/core-localstorage.html">
+<polymer-element name="scs-localstorages" attributes="configuration services">
+        <template>
+            <core-localstorage name="configuration" value="{{configuration}}"></core-localstorage>
+            <core-localstorage name="services" value="{{services}}"></core-localstorage>
+        </template>
+    <script>
+        (function() {
+            Polymer('scs-localstorages', {
+                created: function () {
+                    this.configuration = {
+                        appName: "注塑车间联网制造管理系统",
+                        publisher: {
+                            name:    "上海弘桥科技股份有限公司",
+                            address: "中国上海金海路955弄2号1楼"
+                        },
+                        theme: "standard",
+                        server: {
+                            name: "inet服务器",
+                            id: "inetServer",
+                            ip: "0.0.0.0",
+                            port: 79980
+                        },
+                        responsiveWidth: '900px',
+                        minSplashTime: 3000,
+                        transitionSpeed: 350
+                    },
+                    this.services = {
+                        wslogin:  'http://{0}:{1}/Service.TMTS.svc/rest/Call_VariantJson/false/iNet.Author/login/{2}/0/cmSyncCall'
+                    }
+                }
+            });
+        })();
+    </script>
+</polymer-element>

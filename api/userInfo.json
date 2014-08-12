@@ -1,0 +1,8 @@
+[
+    ["UserID","UserName","Modules"],
+    [
+        ["admin","管理员","MachineOverview|MachineInfoInTime|ScreenOfWorkshop|MoudleBaseInfo|MachineBaseInfo|MachineUsedStatistics"],
+        ["test","测试用户","MachineOverview|MachineInfoInTime|ScreenOfWorkshop|MoudleBaseInfo|MachineBaseInfo|MachineUsedStatistics"]
+    ]
+
+]

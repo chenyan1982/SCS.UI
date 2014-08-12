@@ -1,0 +1,61 @@
+/**
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE
+The complete set of authors may be found at http://xxx/AUTHORS
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS
+*/
+
+.category-bg-wrapper core-icon {
+    height: 100%;
+    width: 100%;
+}
+
+.category-list {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2px 0;
+    margin: 0 -2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-item {
+    position: relative;
+    float: left;
+    vertical-align: top;
+    width: 50%;
+    height: 224px;
+    /*
+     * TODO(dfreedm): force items to be layers until
+     * overflow scrolling renders correctly
+     */
+    will-change: transform;
+}
+
+.tile {
+    position: relative;
+    margin: 2px;
+}
+
+.category-tile-bg {
+    position: absolute !important;
+}
+
+.category-bg-wrapper {
+    width: 80%;
+    height: 80%;
+}
+
+.cat-name {
+    height: 48px;
+    padding: 0 16px;
+    font-size: 12px;
+}
+
+
+

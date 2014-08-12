@@ -1,0 +1,49 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-style/core-style.html">
+<link rel="import" href="../components/core-icons/iconsets/social-icons.html">
+<link rel="import" href="../components/core-icons/iconsets/icons.html">
+<link rel="import" href="../components/core-icon/core-icon.html">
+
+<link rel="import" href="../components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../components/core-animated-pages/transitions/hero-transition.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-from-bottom.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-from-right.html">
+<link rel="import" href="../components/core-animated-pages/transitions/slide-down.html">
+<link rel="import" href="../components/core-animated-pages/transitions/tile-cascade.html">
+
+
+
+<polymer-element name="scs-page-home" vertical layout>
+    <template>
+        <link rel="stylesheet" href="scs-category-themes.css">
+        <core-animated-pages id="nestpages" transitions="cross-fade slide-up slide-down tile-cascade">
+            <template repeat="{{module in modules}}">
+                  <div class="tile " id="tile{{module.id}}" vertical layout>
+                       <core-icon icon="social:pepole"></core-icon>
+                   </div>
+                   <div class="cat" id="cat{{module.id}}">
+                       <div></div>
+                       <div>{{module.name}}</div>
+                   </div>
+                </div>
+            </template>
+        </core-animated-pages>
+    </template>
+
+    <script>
+        Polymer('scs-page-home', {
+            created: function() {
+                this.modules = modules;
+
+            }
+        })
+    </script>
+</polymer-element>

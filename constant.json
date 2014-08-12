@@ -1,0 +1,209 @@
+{
+    "categories": [
+        {
+            "name": "即时监控",
+            "id": "MachineMonitor",
+            "theme": "green"
+        },
+        {
+            "name": "设备管理",
+            "id": "MachineManage",
+            "theme": "yellow"
+        },
+        {
+            "name": "成型工艺管理",
+            "id": "ProcessControl",
+            "theme": "blue"
+        },
+        {
+            "name": "生产管理",
+            "id": "ProcessControl",
+            "theme": "red"
+        },
+        {
+            "name": "人员管理",
+            "id": "StaffManage",
+            "theme": "purple"
+        },
+        {
+            "name": "系统管理",
+            "id": "AppMange",
+            "theme": "gray"
+        }
+    ],
+    "modules": [
+        {
+            "name": "机器群览",
+            "id": "MachineOverview",
+            "categoryid": "MachineMonitor",
+            "show": true
+        },
+        {
+            "name": "机器即时详细信息",
+            "id": "MachineInfoInTime",
+            "categoryid": "MachineMonitor",
+            "show": true
+        },
+        {
+            "name": "车间大屏幕",
+            "id": "ScreenOfWorkshop",
+            "categoryid": "MachineMonitor",
+            "show": true
+        },
+        {
+            "name": "模具基本信息",
+            "id": "MoudleBaseInfo",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "机器基本信息",
+            "id": "MachineBaseInfo",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "机器使用统计",
+            "id": "MachineUsedStatistics",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "机器状态资料",
+            "id": "MachineStatus",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "机器异常统计",
+            "id": "MachineAbnormalStatistics",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "模具使用统计",
+            "id": "ModuleUsedStatistics",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "OEE数据分析",
+            "id": "OEEAnalysis",
+            "categoryid": "MachineManage",
+            "show": true
+        },
+        {
+            "name": "工艺维护",
+            "id": "ProcessMaintain",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "工艺比较",
+            "id": "ProcessCompare",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "工艺修改统计",
+            "id": "ProcessStatistics",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "工艺点检",
+            "id": "ProcessExamine",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "产能分析",
+            "id": "CapacityAnalysis",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "产品部件",
+            "id": "ProductPart",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "原料信息",
+            "id": "MaterialInfo",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "综合统计",
+            "id": "Statistics",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "色粉信息",
+            "id": "TonerInfo",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "生产报表",
+            "id": "ProductReport",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "生产班别计件",
+            "id": "ProductAnalysis",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "温度资料",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "检测资料",
+            "id": "MonitorInfo",
+            "categoryid": "ProcessControl",
+            "show": true
+        },
+        {
+            "name": "人员信息设定",
+            "id": "StaffInfo",
+            "categoryid": "StaffManage",
+            "show": true
+        },
+        {
+            "name": "操作员HMI权限设定",
+            "id": "HMIUserPrivilege",
+            "categoryid": "StaffManage",
+            "show": true
+        },
+        {
+            "name": "操作员iNet权限设定",
+            "id": "iNetUserPrivilege",
+            "categoryid": "StaffManage",
+            "show": true
+        },
+        {
+            "name": "人员登入机器记录",
+            "id": "UserLoginLog",
+            "categoryid": "StaffManage",
+            "show": true
+        },
+        {
+            "name": "系统使用记录",
+            "id": "AppUsedLog",
+            "categoryid": "AppMange",
+            "show": true
+        },
+        {
+            "name": "参数配置",
+            "id": "Configure",
+            "categoryid": "AppMange",
+            "show": true
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "model",
+    "version": "0.0.1",
+    "homepage": "https://chenyan1982/SCS.UI/model",
+    "authors": ["sky"],
+    "description": "",
+    "license": "GPL",
+    "ignore": [
+        "**/.*"
+    ],
+    "dependencies": {
+        "platform": "Polymer/platform#master",
+        "polymer": "Polymer/polymer#master"
+    }
+}

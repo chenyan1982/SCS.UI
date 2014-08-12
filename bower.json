@@ -1,0 +1,14 @@
+{
+    "name": "SCS.UI",
+    "version": "0.0.1",
+    "homepage": "https://chenyan1982/SCS.UI",
+    "author": ["sky"],
+    "description": "front end of new system for spectrum-sys co.ltd",
+    "license": "GPL",
+    "ignore": [
+        "**/.*",
+        "components"
+    ],
+    "dependencies": {
+    }
+}

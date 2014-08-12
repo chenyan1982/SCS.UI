@@ -1,0 +1,59 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-style/core-style.html">
+<link rel="import" href="../components/core-field/core-field.html">
+<link rel="import" href="../components/core-icons/iconsets/social-icons.html">
+<link rel="import" href="../components/core-icons/iconsets/icons.html">
+<link rel="import" href="../components/core-icon/core-icon.html">
+<link rel="import" href="../components/paper-button/paper-button.html">
+<link rel="import" href="../components/core-ajax/core-ajax.html">
+
+
+<polymer-element name="scs-page-login" vertical layout noscript>
+    <template>
+        <style>
+        </style>
+            <div class="logo"></div>
+            <h2>{{appName}}</h2>
+        <core-field>
+            <core-icon icon="social:person"></core-icon>
+            <input value="{{uid}}" placeholder="账户" maxlength="4" flex>
+        </core-field>
+        <core-field>
+            <core-icon icon="icons:lock"></core-icon>
+            <input value="{{pwd}}" type='password' placeholder="密码" maxlength="8" flex>
+        </core-field>
+        <paper-button label="登陆" on-tap="{{login}}" flex layout></paper-button>
+        <core-ajax id="wslogin" auto="false" url="{{url}}" handleAs="json"></core-ajax>
+    </template>
+
+    <script>
+        Polymer('scs-page-login', {
+            ready:  function() {
+                this.appName=storage.configuration.appName;
+//                this.url=storage.services.wslogin.format(storage.configuration.server.ip,storage.configuration.server.port,"null");
+                this.url='api/userInfo.json';
+                this.$.wslogin.addEventListener("core-response", function(e) {
+                    var usrs = loadFromArrayJson(new userInfo(), e.detail.response);
+                    if (usrs.length > 0) {
+                        currentUser = usrs[0];
+                    }
+                    this.fire('loginresponse');
+                });
+            },
+            checkDataValid: function() {
+                return true;
+            },
+            login:  function() {
+                if (this.checkDataValid()) {
+                    this.$.wslogin.go();
+                }
+            }
+        })
+    </script>
+</polymer-element>

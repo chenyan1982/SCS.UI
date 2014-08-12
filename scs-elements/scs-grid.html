@@ -1,0 +1,65 @@
+<link href="../components/core-icons/core-icons.html" rel="import">
+<link href="../components/core-icon-button/core-icon-button.html" rel="import">
+<link href="../components/core-toolbar/core-toolbar.html" rel="import">
+<link href="../components/core-animated-pages/core-animated-pages.html" rel="import">
+<link href="scs-page-MachineOverview.html" rel="import">
+
+
+
+<polymer-element name="scs-grid" vertical layout attribute="module wide" vertical layout>
+    <template>
+        <link rel="stylesheet" href="scs-categories.css">
+        <link rel="stylesheet" href="scs-category-themes.css">
+
+        <core-animated-pages id="pages" flex vertical layout selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
+            <section vertical layout>
+                <div class="category-list content" flex horizontal wrap around-justified layout hero-p tile-cascade>
+                    <template repeat="{{cat, i in modules}}">
+                        <div class="category-item {{cat.category.theme}}-theme " vertical center center-justified layout hero-id="module-{{cat.id}}" hero on-tap="{{openModule}}">
+                            <div class="tile theme-bg-a" dummy fit></div>
+                            <div class="tile" flex vertical layout>
+                                <div flex relative>
+                                    <div fit layout vertical center center-justified>
+                                        <div class="category-bg-wrapper" relative>
+                                            <core-icon class="category-tile-bg" icon="{{'category-icons:' + cat.id}}" cross-fade-delayed fit></core-icon>
+                                            <span cross-fade-delayed>{{cat.name}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </section>
+
+            <section vertical layout>
+                <div class="cat-name theme-bg" flex vertical center layout hero-id="module-MachineOverview" hero on-tap="{{closeModule}}">
+                   <scs-page-MachineOverview></scs-page-MachineOverview>
+                </div>
+            </section>
+
+         </core-animated-pages>
+    </template>
+    <script>
+        Polymer('scs-grid', {
+            domReady:  function() {
+                this.modules=modules;
+            },
+            openModule: function(e) {
+                var i = this.modules.indexOf(e.target.templateInstance.model.cat);
+                this.$.pages.selected = i+1;
+
+            },
+            closeModule: function(e) {
+                this.$.pages.selected = 0;
+            },
+//            back = function() {
+//                this.lastSelected = this.$.pages.selected;
+//                console.log(this.lastSelected);
+//                this.$.pages.selected = 0;
+//            },
+            transitionend: function() {
+            }
+        })
+    </script>
+</polymer-element>

@@ -1,0 +1,16 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<polymer-element name="scs-title">
+    <script>
+        Polymer('scs-title', {
+            ready: function() {
+                document.title = storage.configuration.appName;
+            }
+        })
+    </script>
+</polymer-element>

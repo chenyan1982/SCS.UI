@@ -1,0 +1,62 @@
+<!--
+Copyright (c) 2014 The Spectrum control systems Authors. All rights reserved.
+This code may only be used under the GPL style license found at http://xxx/LICENSE.txt
+The complete set of authors may be found at http://xxx/AUTHORS.txt
+The complete set of contributors may be found at http://xxx/CONTRIBUTORS.txt
+-->
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-style/core-style.html">
+
+<core-style id="home">
+
+
+    polyfill-next-selector {
+        content: ':host > *';
+    }
+
+    ::content >  scs-app {
+        min-height: 450px;
+        overflow: hidden;
+    }
+
+</core-style>
+<polymer-element name="scs-theme-home" noscript>
+    <template>
+        <core-style ref="home"></core-style>
+        <content></content>
+    </template>
+</polymer-element>
+
+
+<core-style id="page-splash">
+    polyfill-next-selector {
+        content: ':host > *';
+    }
+    ::content > .splash {
+        width:100%;
+        height: 100%;
+        background-color: #eee;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-image: url(scs-elements/images/splash.jpg);
+    }
+</core-style>
+<polymer-element name="scs-theme-page-splash" noscript>
+    <template>
+        <core-style ref="page-splash"></core-style>
+        <content></content>
+    </template>
+</polymer-element>
+
+
+
+<core-style id="page-login">
+</core-style>
+<polymer-element name="scs-theme-page-login" noscript>
+    <template>
+        <core-style ref="page-login"></core-style>
+        <content></content>
+    </template>
+</polymer-element>
+
+
